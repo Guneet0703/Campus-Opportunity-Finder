@@ -1,0 +1,55 @@
+.hero {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #8a5fd1 100%);
+  color: #fff;
+  padding: 90px 0 70px;
+  text-align: center;
+}
+
+.hero-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.hero h1 {
+  font-size: 2.6rem;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 560px;
+}
+
+.search-filter-section {
+  padding: 28px 0;
+  background-color: var(--card-background);
+  box-shadow: var(--shadow-sm);
+}
+
+.search-filter-inner {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.opportunities-section {
+  padding-top: 56px;
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 60px 0 48px;
+  }
+  .hero h1 {
+    font-size: 1.9rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+}

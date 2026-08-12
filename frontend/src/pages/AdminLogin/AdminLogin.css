@@ -1,0 +1,23 @@
+.admin-login-page {
+  background-color: var(--background-color);
+}
+
+.admin-login-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  color: var(--primary-color-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.admin-login-page .auth-card {
+  text-align: center;
+}
+
+.admin-login-page .form-group {
+  text-align: left;
+}

@@ -1,0 +1,3 @@
+/* Page-specific overrides for the Login page. Shared auth layout styles
+   (.auth-page, .auth-card, .auth-footer-link) live in App.css so the same
+   look is reused by Register and Admin Login. */
