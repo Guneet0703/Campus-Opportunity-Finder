@@ -1,8 +1,10 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
+
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 
+import Landing from './pages/Landing/Landing';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
@@ -16,19 +18,33 @@ import EditOpportunity from './pages/EditOpportunity/EditOpportunity';
 import NotFound from './pages/NotFound/NotFound';
 
 function App() {
+  const location = useLocation();
+  const isLandingPage = location.pathname === '/';
+
   return (
     <>
       <Navbar />
+
       <main className="app-main">
         <Routes>
-          {/* Public routes */}
-          <Route path="/" element={<Home />} />
+          {/* Public landing page */}
+          <Route path="/" element={<Landing />} />
+
+          {/* Public opportunity browsing */}
+          <Route path="/opportunities" element={<Home />} />
+          <Route
+            path="/opportunity/:id"
+            element={<OpportunityDetails />}
+          />
+
+          {/* Public student authentication */}
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/opportunity/:id" element={<OpportunityDetails />} />
+
+          {/* Existing public admin login */}
           <Route path="/admin-login" element={<AdminLogin />} />
 
-          {/* Student-protected routes */}
+          {/* Student-protected pages */}
           <Route
             path="/profile"
             element={
@@ -37,6 +53,7 @@ function App() {
               </ProtectedRoute>
             }
           />
+
           <Route
             path="/bookmarks"
             element={
@@ -46,7 +63,7 @@ function App() {
             }
           />
 
-          {/* Admin-protected routes */}
+          {/* Admin-protected pages */}
           <Route
             path="/admin/dashboard"
             element={
@@ -55,6 +72,7 @@ function App() {
               </ProtectedRoute>
             }
           />
+
           <Route
             path="/admin/add-opportunity"
             element={
@@ -63,6 +81,7 @@ function App() {
               </ProtectedRoute>
             }
           />
+
           <Route
             path="/admin/edit-opportunity/:id"
             element={
@@ -76,7 +95,9 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
-      <Footer />
+
+      {/* The landing page has its own full-width footer. */}
+      {!isLandingPage && <Footer />}
     </>
   );
 }

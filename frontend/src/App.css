@@ -1,13 +1,9 @@
-/* ==========================================================================
-   App.css - styles shared across multiple pages (containers, sections,
-   utility classes). Page-specific styles live in each page's own CSS file.
-   ========================================================================== */
 
 .container {
   width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 28px;
 }
 
 .app-main {
@@ -16,74 +12,78 @@
 }
 
 .section {
-  padding: 64px 0;
+  padding: 76px 0;
 }
 
 .section-heading {
-  font-size: 2rem;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
   margin-bottom: 12px;
 }
 
 .section-subheading {
   color: var(--text-muted);
-  font-size: 1.05rem;
-  margin-bottom: 32px;
+  font-size: 1rem;
+  margin-bottom: 36px;
+  max-width: 650px;
 }
 
-/* Buttons -------------------------------------------------------------- */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 12px 26px;
-  border-radius: var(--radius-md);
-  font-weight: 600;
-  font-size: 0.95rem;
+  gap: 9px;
+  padding: 12px 22px;
+  border-radius: 13px;
+  font-weight: 700;
+  font-size: 0.92rem;
   white-space: nowrap;
   transition: all var(--transition-fast);
 }
 
 .btn:disabled {
-  opacity: 0.6;
+  opacity: 0.55;
   cursor: not-allowed;
 }
 
 .btn-primary {
-  background-color: var(--accent-color);
+  background: var(--primary-color);
   color: #fff;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 5px 14px rgba(117, 101, 168, 0.18);
 }
+
 .btn-primary:hover:not(:disabled) {
-  background-color: var(--accent-color-dark);
+  background: var(--primary-color-dark);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
 
 .btn-secondary {
-  background-color: var(--secondary-color);
+  background: var(--secondary-color);
   color: var(--primary-color-dark);
 }
+
 .btn-secondary:hover:not(:disabled) {
-  background-color: #a480e6;
+  background: #dcd1f0;
 }
 
 .btn-outline {
-  background-color: transparent;
-  color: var(--primary-color);
-  border: 1.5px solid var(--primary-color);
+  background: #fff;
+  color: var(--primary-color-dark);
+  border: 1px solid #dcd4e9;
 }
+
 .btn-outline:hover:not(:disabled) {
-  background-color: var(--primary-color);
-  color: #fff;
+  background: #f2eef9;
+  border-color: var(--primary-color);
 }
 
 .btn-danger {
-  background-color: var(--error-color);
+  background: var(--error-color);
   color: #fff;
 }
+
 .btn-danger:hover:not(:disabled) {
-  background-color: #c73648;
+  background: #bd4d60;
 }
 
 .btn-block {
@@ -91,31 +91,33 @@
 }
 
 .btn-sm {
-  padding: 8px 16px;
-  font-size: 0.85rem;
+  padding: 9px 16px;
+  font-size: 0.84rem;
+  border-radius: 11px;
 }
 
-/* Badges ----------------------------------------------------------------- */
 .badge {
-  display: inline-block;
-  padding: 4px 12px;
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 5px 11px;
   border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  background-color: var(--secondary-color);
-  color: var(--primary-color-dark);
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.015em;
+  background: #eee8f8;
+  color: #66558f;
 }
 
-/* Forms -------------------------------------------------------------------*/
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 21px;
 }
 
 .form-label {
   display: block;
-  font-weight: 600;
-  font-size: 0.9rem;
-  margin-bottom: 6px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  margin-bottom: 8px;
   color: var(--text-color);
 }
 
@@ -123,13 +125,18 @@
 .form-select,
 .form-textarea {
   width: 100%;
-  padding: 12px 14px;
-  border: 1.5px solid var(--border-color);
-  border-radius: var(--radius-sm);
-  font-size: 0.95rem;
-  background-color: #fff;
+  padding: 13px 15px;
+  border: 1px solid #e5dfec;
+  border-radius: 12px;
+  font-size: 0.94rem;
+  background: #fff;
   color: var(--text-color);
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: #a19aaa;
 }
 
 .form-input:focus,
@@ -137,7 +144,7 @@
 .form-textarea:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(108, 62, 184, 0.12);
+  box-shadow: 0 0 0 4px rgba(117, 101, 168, 0.1);
 }
 
 .form-input.has-error,
@@ -149,7 +156,7 @@
 .form-error {
   color: var(--error-color);
   font-size: 0.8rem;
-  margin-top: 4px;
+  margin-top: 5px;
 }
 
 .form-textarea {
@@ -157,102 +164,111 @@
   min-height: 120px;
 }
 
-/* Alerts ------------------------------------------------------------------*/
 .alert {
-  padding: 12px 16px;
-  border-radius: var(--radius-sm);
+  padding: 13px 16px;
+  border-radius: 12px;
   font-size: 0.9rem;
-  margin-bottom: 16px;
-}
-.alert-success {
-  background-color: #e5f7ec;
-  color: var(--success-color);
-  border: 1px solid #b9e8cb;
-}
-.alert-error {
-  background-color: #fdecee;
-  color: var(--error-color);
-  border: 1px solid #f6c1c8;
+  margin-bottom: 18px;
 }
 
-/* Grid ----------------------------------------------------------------- */
+.alert-success {
+  background: #e9f6ef;
+  color: #28744f;
+  border: 1px solid #c8e8d5;
+}
+
+.alert-error {
+  background: #fff0f1;
+  color: #b94355;
+  border: 1px solid #f4cbd1;
+}
+
 .opportunities-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
 }
 
-@media (max-width: 1024px) {
-  .opportunities-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 640px) {
-  .opportunities-grid {
-    grid-template-columns: 1fr;
-  }
-  .section {
-    padding: 40px 0;
-  }
-}
-
-/* Card base ---------------------------------------------------------------*/
 .card {
-  background-color: var(--card-background);
+  background: var(--card-background);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
 }
 
-/* Auth page shell ---------------------------------------------------------*/
 .auth-page {
-  min-height: calc(100vh - var(--navbar-height) - 200px);
+  min-height: calc(100vh - var(--navbar-height) - 150px);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 48px 20px;
+  padding: 54px 20px;
 }
 
 .auth-card {
   width: 100%;
-  max-width: 440px;
-  background-color: var(--card-background);
-  border-radius: var(--radius-lg);
+  max-width: 460px;
+  padding: 40px;
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
   box-shadow: var(--shadow-md);
-  padding: 40px 36px;
 }
 
 .auth-card h1 {
-  font-size: 1.6rem;
-  margin-bottom: 8px;
+  font-size: 1.85rem;
+  margin-bottom: 10px;
 }
 
 .auth-subtext {
   color: var(--text-muted);
-  margin-bottom: 24px;
-  font-size: 0.92rem;
+  margin-bottom: 28px;
+  font-size: 0.94rem;
 }
 
 .auth-footer-link {
-  margin-top: 20px;
+  margin-top: 24px;
   text-align: center;
   font-size: 0.9rem;
   color: var(--text-muted);
 }
 
 .auth-footer-link a {
-  color: var(--primary-color);
-  font-weight: 600;
+  color: var(--primary-color-dark);
+  font-weight: 700;
 }
+
 .auth-footer-link a:hover {
   text-decoration: underline;
 }
 
-/* Page header used on internal pages ---------------------------------- */
 .page-header {
-  padding: 40px 0 8px;
+  padding: 44px 0 12px;
 }
 
 .page-header h1 {
-  font-size: 1.9rem;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+}
+
+@media (max-width: 1024px) {
+  .opportunities-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0 18px;
+  }
+
+  .section {
+    padding: 48px 0;
+  }
+
+  .opportunities-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .auth-card {
+    padding: 28px 22px;
+  }
 }

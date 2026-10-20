@@ -59,8 +59,14 @@ const OpportunityDetails = () => {
 
   const handleToggleBookmark = async () => {
     if (!isAuthenticated || !isStudent) {
-      navigate('/login');
-      return;
+      navigate('/login', {
+        state: {
+          from: {
+            pathname: `/opportunity/${id}`,
+          },
+        },
+      });
+    return;
     }
     try {
       if (isBookmarked) {
@@ -81,7 +87,7 @@ const OpportunityDetails = () => {
 
   return (
     <div className="container details-page">
-      <Link to="/" className="details-back-link">
+      <Link to="/opportunities" className="details-back-link">
         <FiArrowLeft size={16} /> Back
       </Link>
 

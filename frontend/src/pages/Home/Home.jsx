@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { FiCompass } from 'react-icons/fi';
 import OpportunityCard from '../../components/OpportunityCard/OpportunityCard';
 import SearchBar from '../../components/SearchBar/SearchBar';
@@ -24,6 +24,7 @@ const Home = () => {
   const debouncedSearch = useDebouncedValue(search, 350);
   const { isAuthenticated, isStudent } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const fetchOpportunities = useCallback(async () => {
     setLoading(true);
@@ -63,10 +64,19 @@ const Home = () => {
   };
 
   const handleToggleBookmark = async (opportunityId) => {
-    if (!isAuthenticated || !isStudent) {
-      navigate('/login');
-      return;
-    }
+  if (!isAuthenticated || !isStudent) {
+    navigate('/login', {
+      state: {
+        from: {
+          pathname: location.pathname,
+          search: location.search,
+        },
+      },
+    });
+    return;
+  }
+
+  // Keep the existing bookmark toggle logic below this point.
 
     const alreadyBookmarked = bookmarkedIds.includes(opportunityId);
     try {

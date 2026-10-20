@@ -31,7 +31,7 @@ const Login = () => {
     try {
       const res = await loginStudent(formData);
       login(res.data.token, res.data.user);
-      const redirectTo = location.state?.from?.pathname || '/';
+      const redirectTo = location.state?.from?.pathname || '/opportunities';
       navigate(redirectTo, { replace: true });
     } catch (err) {
       setServerError(err.message || 'Invalid email or password.');

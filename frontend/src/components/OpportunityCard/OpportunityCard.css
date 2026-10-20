@@ -1,36 +1,54 @@
+
 .opportunity-card {
-  padding: 22px;
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
-  border: 1px solid var(--border-color);
+  gap: 13px;
+  padding: 25px;
+  min-width: 0;
+  background: #fff;
+  border: 1px solid #eee9f2;
+  border-radius: 21px;
+  box-shadow: 0 4px 16px rgba(59, 47, 83, 0.035);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
 }
 
 .opportunity-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-5px);
+  border-color: #dcd1ec;
+  box-shadow: 0 15px 35px rgba(59, 47, 83, 0.085);
 }
 
 .opportunity-card-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 2px;
 }
 
 .bookmark-btn {
-  color: var(--text-muted);
-  padding: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 37px;
+  height: 37px;
+  flex-shrink: 0;
+  border: 1px solid #eee8f3;
   border-radius: 50%;
-  display: flex;
+  background: #fff;
+  color: #958b9f;
 }
 
 .bookmark-btn:hover {
-  background-color: var(--background-color);
+  background: #fff0f2;
+  border-color: #f1cbd2;
   color: var(--accent-color);
 }
 
 .bookmark-btn.is-active {
+  background: #fff0f2;
+  border-color: #f1cbd2;
   color: var(--accent-color);
 }
 
@@ -39,47 +57,69 @@
 }
 
 .opportunity-card-title {
-  font-size: 1.1rem;
-  line-height: 1.35;
-  min-height: 2.6em;
+  font-size: 1.13rem;
+  line-height: 1.45;
+  letter-spacing: -0.025em;
+  overflow-wrap: anywhere;
 }
 
 .opportunity-card-organizer {
-  color: var(--primary-color);
-  font-weight: 600;
-  font-size: 0.9rem;
+  color: var(--primary-color-dark);
+  font-weight: 700;
+  font-size: 0.88rem;
 }
 
 .opportunity-card-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
-  font-size: 0.82rem;
+  gap: 10px 15px;
+  padding: 12px 0;
+  border-top: 1px solid #f1edf4;
+  border-bottom: 1px solid #f1edf4;
+  font-size: 0.79rem;
   color: var(--text-muted);
 }
 
 .opportunity-card-meta span {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
+  min-width: 0;
+}
+
+.opportunity-card-meta svg {
+  flex-shrink: 0;
+  color: #9685b9;
 }
 
 .opportunity-card-description {
-  font-size: 0.88rem;
-  color: var(--text-muted);
   flex-grow: 1;
+  color: #797381;
+  font-size: 0.88rem;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
 }
 
 .opportunity-card-details-link {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: var(--accent-color);
-  margin-top: 6px;
+  align-self: flex-start;
+  gap: 8px;
+  margin-top: 5px;
+  padding: 9px 0;
+  color: var(--primary-color-dark);
+  font-weight: 800;
+  font-size: 0.88rem;
 }
 
 .opportunity-card-details-link:hover {
-  gap: 10px;
+  gap: 13px;
+  color: var(--accent-color-dark);
+}
+
+@media (max-width: 640px) {
+  .opportunity-card {
+    padding: 21px;
+    border-radius: 18px;
+  }
 }
