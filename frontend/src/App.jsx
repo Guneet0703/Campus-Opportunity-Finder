@@ -43,7 +43,7 @@ function App() {
 
           {/* Existing public admin login */}
           <Route path="/admin-login" element={<AdminLogin />} />
-
+      
           {/* Student-protected pages */}
           <Route
             path="/profile"

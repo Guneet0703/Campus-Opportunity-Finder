@@ -64,17 +64,17 @@ const Home = () => {
   };
 
   const handleToggleBookmark = async (opportunityId) => {
-  if (!isAuthenticated || !isStudent) {
-    navigate('/login', {
-      state: {
-        from: {
-          pathname: location.pathname,
-          search: location.search,
+    if (!isAuthenticated || !isStudent) {
+      navigate('/login', {
+        state: {
+          from: {
+            pathname: location.pathname,
+            search: location.search,
+          },
         },
-      },
-    });
-    return;
-  }
+     });
+      return;
+    }
 
   // Keep the existing bookmark toggle logic below this point.
 

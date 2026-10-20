@@ -66,7 +66,7 @@ const OpportunityDetails = () => {
           },
         },
       });
-    return;
+      return;
     }
     try {
       if (isBookmarked) {

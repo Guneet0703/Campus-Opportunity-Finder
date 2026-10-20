@@ -70,3 +70,4 @@ const OpportunityCard = ({
 };
 
 export default OpportunityCard;
+
