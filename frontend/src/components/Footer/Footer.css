@@ -1,24 +1,15 @@
-
 .footer {
   background-color: var(--primary-color);
   color: #fff;
   margin-top: 60px;
-  width: 100%;
 }
 
 .footer-inner {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: flex-start;
   gap: 32px;
   padding: 48px 24px 32px;
-  box-sizing: border-box;
-}
-
-.footer-brand {
-  flex: 1 1 260px;
-  min-width: 220px;
 }
 
 .footer-brand-title {
@@ -29,50 +20,29 @@
   font-weight: 700;
   font-size: 1.1rem;
   margin-bottom: 10px;
-  color: #fff;
-  text-decoration: none;
 }
 
 .footer-brand p {
   color: rgba(255, 255, 255, 0.78);
   font-size: 0.9rem;
-  line-height: 1.6;
   max-width: 320px;
-  margin: 0;
-}
-
-.footer-links {
-  flex: 0 1 160px;
-  min-width: 140px;
 }
 
 .footer-links h4 {
   color: #fff;
   font-size: 1rem;
-  margin: 0 0 14px;
+  margin-bottom: 14px;
 }
 
 .footer-links ul {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.footer-links li {
-  margin: 0;
-  padding: 0;
 }
 
 .footer-links a {
   color: rgba(255, 255, 255, 0.78);
   font-size: 0.9rem;
-  line-height: 1.5;
-  text-decoration: none;
-  overflow-wrap: anywhere;
-  transition: color 0.2s ease;
 }
 
 .footer-links a:hover {
@@ -84,64 +54,9 @@
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   padding: 18px 24px;
   text-align: center;
-  box-sizing: border-box;
-  width: 100%;
 }
 
 .footer-bottom p {
   font-size: 0.82rem;
-  line-height: 1.6;
   color: rgba(255, 255, 255, 0.75);
-  margin: 0;
-}
-
-/* Tablet */
-@media (max-width: 850px) {
-  .footer-inner {
-    justify-content: flex-start;
-    gap: 32px 40px;
-  }
-
-  .footer-brand {
-    flex: 1 1 100%;
-  }
-
-  .footer-links {
-    flex: 0 1 180px;
-  }
-}
-
-/* Mobile */
-@media (max-width: 480px) {
-  .footer-inner {
-    padding: 36px 20px 28px;
-    gap: 28px 20px;
-  }
-
-  .footer-brand {
-    flex-basis: 100%;
-    min-width: 0;
-  }
-
-  .footer-brand-title {
-    font-size: 1rem;
-    gap: 8px;
-  }
-
-  .footer-links {
-    flex: 1 1 calc(50% - 20px);
-    min-width: 0;
-  }
-
-  .footer-links h4 {
-    font-size: 0.95rem;
-  }
-
-  .footer-links a {
-    font-size: 0.85rem;
-  }
-
-  .footer-bottom {
-    padding: 16px 20px;
-  }
 }
